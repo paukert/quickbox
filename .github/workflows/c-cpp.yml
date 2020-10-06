@@ -44,13 +44,13 @@ jobs:
     - name: Save AppImage
       uses: actions/upload-artifact@v2
       with:
-        name: quickevent-${{ $VERSION }}-linux64.Appimage
+        name: quickevent-${{ env.VERSION }}-linux64.Appimage
         path: build/artifacts/quickevent-*-linux64.AppImage
   
     - name: Save gzip
       uses: actions/upload-artifact@v2
       with:
-        name: quickevent-${{ $VERSION }}-linux64.tgz
+        name: quickevent-${{ env.VERSION }}-linux64.tgz
         path: build/artifacts/quickevent-*-linux64.tgz
       
       
@@ -131,5 +131,5 @@ jobs:
     - name: Save setup
       uses: actions/upload-artifact@v2
       with:
-        name: quickevent-${{ $VERSION }}-win64-setup.exe
-        path: _inno\quickevent\quickevent-${{ $VERSION }}-win64-setup.exe
+        name: quickevent-${{ env.VERSION }}-win64-setup.exe
+        path: _inno\quickevent\quickevent-${{ env.VERSION }}-win64-setup.exe
