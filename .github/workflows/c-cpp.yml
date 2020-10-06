@@ -28,7 +28,8 @@ jobs:
         
     - name: Get app version
       run: | 
-        echo "::set-env name=VERSION::`grep APP_VERSION quickevent/app/quickevent/src/appversion.h | cut -d\\" -f2`"
+        echo "VERSION=`grep APP_VERSION quickevent/app/quickevent/src/appversion.h | cut -d\\" -f2`" >> $GITHUB_ENV
+        #echo "::set-env name=VERSION::`grep APP_VERSION quickevent/app/quickevent/src/appversion.h | cut -d\\" -f2`"
           
     - name: Get AppImageTool
       run: |
@@ -43,13 +44,13 @@ jobs:
     - name: Save AppImage
       uses: actions/upload-artifact@v2
       with:
-        name: quickevent-${{ env.VERSION }}-linux64.Appimage
+        name: quickevent-${{ VERSION }}-linux64.Appimage
         path: build/artifacts/quickevent-*-linux64.AppImage
   
     - name: Save gzip
       uses: actions/upload-artifact@v2
       with:
-        name: quickevent-${{ env.VERSION }}-linux64.tgz
+        name: quickevent-${{ VERSION }}-linux64.tgz
         path: build/artifacts/quickevent-*-linux64.tgz
       
       
@@ -117,7 +118,9 @@ jobs:
         done
       
     - name: Get app version
-      run: echo "::set-env name=VERSION::`grep APP_VERSION quickevent/app/quickevent/src/appversion.h | cut -d\\" -f2`"
+      run: |
+        echo "VERSION=`grep APP_VERSION quickevent/app/quickevent/src/appversion.h | cut -d\\" -f2`" >> $GITHUB_ENV
+        #echo "::set-env name=VERSION::`grep APP_VERSION quickevent/app/quickevent/src/appversion.h | cut -d\\" -f2`"
   
     - name: Create installer
       run: |
@@ -128,5 +131,5 @@ jobs:
     - name: Save setup
       uses: actions/upload-artifact@v2
       with:
-        name: quickevent-${{ env.VERSION }}-win64-setup.exe
-        path: _inno\quickevent\quickevent-${{ env.VERSION }}-win64-setup.exe
+        name: quickevent-${{ VERSION }}-win64-setup.exe
+        path: _inno\quickevent\quickevent-${{ VERSION }}-win64-setup.exe
