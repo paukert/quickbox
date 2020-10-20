@@ -21,17 +21,17 @@ win32 {
 	QMAKE_EXTRA_TARGETS += datafiles
 
 	# replace / in path by \
-	SRC = $$shell_path($$SRC_DATA_DIR)
-	DEST = $$shell_path($$DEST_DATA_DIR)
-	SRC ~= s,/,\\,g
-	DEST ~= s,/,\\,g
-	SRC ~= s,\\D\\,D:,g
-	DEST ~= s,\\D\\,D:,g
+	#SRC = $$shell_path($$SRC_DATA_DIR)
+	#DEST = $$shell_path($$DEST_DATA_DIR)
+	#SRC ~= s,/,\\,g
+	#DEST ~= s,/,\\,g
+	#SRC ~= s,\\D\\,D:,g
+	#DEST ~= s,\\D\\,D:,g
 
 	datafiles.commands = \
-		xcopy "$${SRC}" "$${DEST}" /s /e /y /i
+		#xcopy '$${SRC}' '$${DEST}' /s /e /y /i
 		#xcopy \"$$shell_path($$SRC_DATA_DIR)\" \"$$shell_path($$DEST_DATA_DIR)\" /s /e /y /i
-		#robocopy $$shell_path($$SRC_DATA_DIR) $$shell_path($$DEST_DATA_DIR) /IS /E
+		robocopy $$shell_path($$SRC_DATA_DIR) $$shell_path($$DEST_DATA_DIR) /IS /E /V
 		# robocopy 0-7 exit codes are not an error
 		#IF %ERRORLEVEL% LSS 8 SET ERRORLEVEL=0
 }
