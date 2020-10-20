@@ -21,7 +21,7 @@ win32 {
 	QMAKE_EXTRA_TARGETS += datafiles
 
 	datafiles.commands = \
-		xcopy "$$shell_path($$SRC_DATA_DIR)" "$$shell_path($$DEST_DATA_DIR)" /s /e /y /i
+		xcopy $$shell_quote($$shell_path($$SRC_DATA_DIR)) $$shell_quote($$shell_path($$DEST_DATA_DIR)) /s /e /y /i
 		#xcopy \"$$shell_path($$SRC_DATA_DIR)\" \"$$shell_path($$DEST_DATA_DIR)\" /s /e /y /i
 		#robocopy $$shell_path($$SRC_DATA_DIR) $$shell_path($$DEST_DATA_DIR) /IS /E
 		# robocopy 0-7 exit codes are not an error
