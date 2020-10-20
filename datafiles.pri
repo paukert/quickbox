@@ -20,7 +20,8 @@ win32 {
 	POST_TARGETDEPS += datafiles
 	QMAKE_EXTRA_TARGETS += datafiles
 	datafiles.commands = \
-		robocopy $$shell_path($$SRC_DATA_DIR) $$shell_path($$DEST_DATA_DIR) /IS /E
+		xcopy \"$$shell_path($$SRC_DATA_DIR)\" \"$$shell_path($$DEST_DATA_DIR)\" /s /e /y /i
+		#robocopy $$shell_path($$SRC_DATA_DIR) $$shell_path($$DEST_DATA_DIR) /IS /E
 		# robocopy 0-7 exit codes are not an error
-		IF %ERRORLEVEL% LSS 8 SET ERRORLEVEL=0
+		#IF %ERRORLEVEL% LSS 8 SET ERRORLEVEL=0
 }
