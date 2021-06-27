@@ -122,8 +122,7 @@ jobs:
 
         LANGUAGES=("cs_CZ" "fr_FR" "nb_NO" "nl_BE" "pl_PL" "ru_RU" "uk_UA")
         for language in ${LANGUAGES[@]} ; do
-          echo cp "$Qt5_Dir/translations/qtbase_${language:0:2}.qm" "$TRANS_DIR/qtbase_${language}.qm"
-          cp "$Qt5_Dir/translations/qtbase_${language:0:2}.qm" "$TRANS_DIR/qtbase_${language}.qm"
+          cp --verbose "$Qt5_Dir/translations/qtbase_${language:0:2}.qm" "$TRANS_DIR/qtbase_${language}.qm" || true
         done
       
     - name: Get app version
