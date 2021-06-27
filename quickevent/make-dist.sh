@@ -206,7 +206,7 @@ done
 LANGUAGES=("cs_CZ" "fr_FR" "nb_NO" "nl_BE" "pl_PL" "ru_RU" "uk_UA")
 for language in ${LANGUAGES[@]} ; do
 	# some languages don't have qtbase file translated
-	cp --verbose "${QT_DIR}/translations/qtbase_${language:0:2}.qm" "${TRANS_DIR}/qtbase_${language}.qm" || true
+	cp --verbose "${QT_DIR}/translations/qtbase_${language:0:2}.qm" "${TRANS_DIR}/qtbase.${language}.qm" || true
 done
 
 ARTIFACTS_DIR=$WORK_DIR/artifacts
