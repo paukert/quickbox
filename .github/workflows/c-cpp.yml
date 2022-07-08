@@ -104,7 +104,7 @@ jobs:
         cached: ${{ steps.cache-qt.outputs.cache-hit }}
         version: ${{ env.QT_VERSION }}
         host: 'windows'
-        arch: 'win64_mingw81' 
+        arch: 'win64_msvc2019_64'
     
     - name: Build
       run: |
