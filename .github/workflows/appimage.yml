@@ -2,7 +2,7 @@ name: AppImage
 
 on:
   push:
-    branches: [ "master", "qt6" ]
+    branches: [ "master", "qt6", "qe3-test" ]
   pull_request:
     branches: [ "master", "qt6" ]
 
