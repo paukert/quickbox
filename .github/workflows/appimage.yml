@@ -9,7 +9,7 @@ on:
 jobs:
   ubuntu-qt6:
     name: Qt 6.5 / Ubuntu 22.04
-    runs-on: ubuntu-22.04
+    runs-on: ubuntu-20.04
     steps:
       - name: Clone the repository
         uses: actions/checkout@v3
